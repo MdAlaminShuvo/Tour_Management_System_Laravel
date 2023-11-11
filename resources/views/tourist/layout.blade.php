@@ -7,14 +7,14 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-    
+
 
     <!-- Favicon -->
     <link href="{{ asset('assets/img/favicon.ico') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -36,9 +36,9 @@
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
-                        <p><i class="fa fa-envelope mr-2"></i>ghurtejabo@gmail.com</p>
+                        <p><i class="fa fa-envelope mr-2"></i>alamin.cse.ru2018@gmail.com</p>
                         <p class="text-body px-3">|</p>
-                        <p><i class="fa fa-phone-alt mr-2"></i>+1824 072 334</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+8801974671100</p>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
@@ -102,7 +102,7 @@
 
                                       <input type="submit" class="dropdown-item" value="Log out">
                                     </form>
-                                  
+
                                 </div>
                             </div>
 
@@ -118,7 +118,7 @@
                         @endif
 
 
-                        
+
                     </div>
                 </div>
             </nav>
@@ -169,12 +169,12 @@
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-map-marker-alt mr-2"></i>Rajshahi,Bangladesh</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>+1824 072 334</p>
-                <p><i class="fa fa-envelope mr-2"></i>ghurtejabo@gmail.com</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+8801974671100</p>
+                <p><i class="fa fa-envelope mr-2"></i>alamin.cse.ru2018@gmail.com</p>
                 <br>
                 <br>
                 <a href=" https://drive.google.com/file/d/1i1Ug2vB2gEW2dNGgSRRLqXH2aMYOt2Ir/view?usp=sharing" target="_blank" download><img src="{{ asset('assets/img/apk.png') }}"  style="width:280px;height:80px;" alt="avatar"> </a>
-                
+
             </div>
         </div>
     </div>
@@ -210,7 +210,7 @@
     <script src="{{ asset('mail/jqBootstrapValidation.min.js') }}"></script>
     <script src="{{ asset('mail/contact.js') }}"></script>
 
- 
+
 
     <!-- Template Javascript -->
     <script src="{{ asset('assets/js/main.js') }}"></script>

@@ -8,7 +8,7 @@
         "php": "^7.3|^8.0",
         "barryvdh/laravel-dompdf": "^2.0",
         "buglinjo/laravel-webp": "^2.3",
-        "dgvai/laravel-user-review": "^1.5",
+        "dgvai/laravel-user-review": "2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.5",
         "laravel/framework": "^8.75",
