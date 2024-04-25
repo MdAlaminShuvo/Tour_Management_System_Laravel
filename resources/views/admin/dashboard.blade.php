@@ -8,16 +8,16 @@
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                   <h3 class="font-weight-bold">Welcome {{ Auth::user()->name }}</h3>
                   @if(Auth::user()->status!="Pending")
-                    <h6 class="font-weight-normal mb-0">All systems are running smoothly! You are now interacted as a 
-                  
+                    <h6 class="font-weight-normal mb-0">All systems are running smoothly! You are now interacted as a
+
                   @else
 
-                    <h6 class="font-weight-normal mb-0">Please wait for the admin approval.Then you are interacted as a 
-                  
+                    <h6 class="font-weight-normal mb-0">Please wait for the admin approval.Then you are interacted as a
+
                   @endif
-          
+
                   @if(Auth::user()->usertype==1)
-                  
+
                     <span class="text-primary">Local Guide</span></h6>
 
                   @elseif(Auth::user()->usertype==2)
@@ -25,11 +25,11 @@
                     <span class="text-primary">Local Host</span></h6>
 
                   @else
-                  
+
                     <span class="text-primary">Super Admin</span></h6>
-                  
-                  @endif 
-                 
+
+                  @endif
+
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -37,7 +37,7 @@
                     <p class="btn btn-sm btn-light bg-white" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                       <i class="mdi mdi-calendar"></i> Today ({{ $today }})
                     </p>
-                  
+
                   </div>
                  </div>
                 </div>

@@ -24,7 +24,7 @@ use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {
-    
+
     public function viewHistory()
     {
 
@@ -52,72 +52,72 @@ class HomeController extends Controller
         $lhServiceId=$history->lh_service_id;
         $paymentDate=$history->payment_date;
         $tran_id=$history->transaction_id;
-  
+
 
         //local guide
         if($lgServiceId !=null)
         {
-  
+
             $serviceDetails=Local_guide_service::where('id',$lgServiceId)->first();
-   
+
             $placeDetails=Place::where('id',$serviceDetails->place_id)->first();
-  
+
             $serviceHolderProfile=User::where('id',$serviceDetails->user_id)->first();
-  
-  
+
+
         }
         //local host
         else if($lhServiceId !=null)
         {
-  
+
             $serviceDetails=Local_host_service::where('id',$lhServiceId)->first();
-              
+
             $placeDetails=Place::where('id',$serviceDetails->place_id)->first();
-  
+
             $serviceHolderProfile=User::where('id',$serviceDetails->user_id)->first();
-  
-  
+
+
         }
-  
+
         if($packageId==1)
         {
-  
+
             $packageName="Regular Package";
-  
+
         }
         else if($packageId==2)
         {
-  
-                  
+
+
             $packageName="Premium Package";
-  
-  
+
+
         }
         else if($packageId==3)
         {
-  
-                  
+
+
             $packageName="Pro Package";
-  
-  
+
+
         }
         else if($packageId==4)
         {
-  
-                  
+
+
             $packageName="Ultrapro Package";
-  
-  
+
+
         }
-  
+
         $virtualAssistantPrice=Virtual_assistant::sum('price');
-  
+
         $today=$paymentDate;
-  
+
         $pdf = PDF::loadView('tourist.SuccesfullPaymentCopy', compact('virtualAssistantPrice','packageId','packageName','today', 'tran_id','from','to','amountOfDay','amountOfPerson','serviceHolderProfile','serviceDetails','placeDetails','totalBill'));
-  
+
         return $pdf->download('Payment Copy.pdf',array("Attachment" => false));
-  
+
 
 
     }
@@ -143,7 +143,7 @@ class HomeController extends Controller
 
             if($ip=="127.0.0.1")
             {
-                $city="Rajshahi";
+                $city="Dhaka";
                 $country="Bangladesh";
             }
             else
@@ -156,15 +156,15 @@ class HomeController extends Controller
 
             $client = new Client();
             $response = $client->get('https://api.openweathermap.org/data/2.5/weather?q='.$city.'&appid='.env('OPEN_WEATHER_API_KEY'));
-        
+
             $body = $response->getBody();
             $weather = json_decode($body);
-        
+
             if(Auth::user()->usertype == 1)
             {
-    
+
                 $pendingTour=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->count();
-    
+
                 $totalBooking=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->count();
 
                 $totalEarn=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->sum('pay_guide_host');
@@ -174,21 +174,21 @@ class HomeController extends Controller
             }
             else if(Auth::user()->usertype == 2)
             {
-    
+
                 $pendingTour=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->where('tour_status','Pending')->count();
-    
+
                 $totalBooking=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->count();
 
                 $totalEarn=Order::where('service_holder_id',Auth::user()->id)->where('status','Success')->sum('pay_guide_host');
 
                 $totalService=Local_host_service::where('user_id',Auth::user()->id)->count();
 
-    
+
             }
             else{
 
                 $pendingTour=Order::where('tour_status','Pending')->where('status','Success')->count();
-    
+
                 $totalBooking=Order::where('status','Success')->count();
 
                 $totalEarn=Order::where('status','Success')->sum('amount');
@@ -311,7 +311,7 @@ class HomeController extends Controller
                 ['rating'=>$avgRating],
 
             );
-            
+
         }
         else if($orderInformation->lh_service_id!=Null)
         {
@@ -323,7 +323,7 @@ class HomeController extends Controller
                 ['rating'=>$avgRating],
 
             );
-            
+
         }
 
         return back();
@@ -375,7 +375,7 @@ class HomeController extends Controller
             'description'=>'Tour canceled successfully. Return money to your account within 7 days !',
 
         ];
-    
+
         \Mail::to($orderInformation->email)->send(new \App\Mail\ReturnBookingEmail($details));
 
         if($orderInformation->lg_service_id!=Null)
@@ -397,7 +397,7 @@ class HomeController extends Controller
             'description'=>'Tour canceled from tourist. ' . $orderInformation->name .' cancel your tour.',
 
         ];
-    
+
         \Mail::to($serviceHolderEmail)->send(new \App\Mail\TourCanceledEmail($details));
 
         Session()->flash('success','Tour canceled successfully. Return money to your account within 7 days !');
